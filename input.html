@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+<head> 
+    <meta charset = "utf-8" /> 
+    <link rel="stylesheet" href="final.css">
+</head>
+<body>
+    .
+
+    <div class = "container">
+        <h1>Weather Forecast</h1>
+        
+    <form action="weather.php">  
+    <table>
+        <form>
+            <tr>
+                <td>
+                    <label for="address">
+                        Street Address
+                    </label>
+                </td>
+                <td><input type="text" id="Address" name="address[]" />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="city">
+                        City
+                    </label>
+                </td>
+                <td><input type="text" id="City" name="address[]" />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="state">
+                        State
+                    </label>
+                </td>
+                <td><input type="text" id="State" name="address[]" />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="zipCode">
+                        Zip Code
+                    </label>
+                </td>
+                <td><input type="number" id="zipCode" name="address[]" />
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" id="submit" value="Submit" class="sbutton"/>
+                </td>
+                <td><input type="reset" id="reset" value="Reset"class="sbutton"/>
+                </td>
+            </tr>
+        </form>
+    </table>
+</form>  
+
+    </div>
+
+
+</body>
+
+</html>
