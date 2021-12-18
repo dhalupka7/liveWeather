@@ -16,7 +16,7 @@ $formattedAddress =  urlencode($address[0]).',+'.urlencode($address[1]).',+'.$ad
 
 function get_lat($fa)
 {
-    $googleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=$fa&key=AIzaSyCrB9Fesgas897MQNawfMd5cSnuyzCxppw";
+    $googleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=$fa&key=<enterSuperSecretGoogleAPIkeyCodeHere>";
     $location = json_decode(file_get_contents($googleURL, false), true);
     $lat = $location['results'][0]['geometry']['location']['lat'];
     return $lat;
@@ -24,7 +24,7 @@ function get_lat($fa)
 
 function get_long($fa)
 {
-    $googleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=$fa&key=AIzaSyCrB9Fesgas897MQNawfMd5cSnuyzCxppw";
+    $googleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=$fa&key=<enterSuperSecretGoogleAPIkeyCodeHere>";
     $location = json_decode(file_get_contents($googleURL, false), true);
     $long = $location['results'][0]['geometry']['location']['lng'];
     return $long;
