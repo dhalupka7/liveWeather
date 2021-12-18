@@ -14,7 +14,7 @@
 $address = $_GET['address'];
 $formattedAddress =  urlencode($address[0]).',+'.urlencode($address[1]).',+'.$address[2].',+'.$address[3];
 
-// Gets latitude
+// Gets latitude via API
 function get_lat($fa)
 {
     $googleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=$fa&key=<enterSuperSecretGoogleAPIkeyCodeHere>";
@@ -23,7 +23,7 @@ function get_lat($fa)
     return $lat;
 }
     
-// Gets longitude
+// Gets longitude via API
 function get_long($fa)
 {
     $googleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=$fa&key=<enterSuperSecretGoogleAPIkeyCodeHere>";
@@ -40,7 +40,7 @@ $lat = get_lat($formattedAddress);
 $long = get_long($formattedAddress);
 
 
-// Grid points
+// Gets X,Y,ID grid points via API using lat and long
 $noaaURL = "https://api.weather.gov/points/$lat,$long";
 $region = json_decode(file_get_contents($noaaURL, false, $context), true);
 
@@ -48,6 +48,7 @@ $gridID = $region['properties']['gridId'];
 $gridX = $region['properties']['gridX'];
 $gridY = $region['properties']['gridY'];
 
+    // Gets forecast information from nearest station using Grid ID, gridX, and gridY
 $gridPointsNoaaURL = "https://api.weather.gov/gridpoints/$gridID/$gridX,$gridY/forecast";
 $gridPoints = json_decode(file_get_contents($gridPointsNoaaURL, false, $context), true);
 
