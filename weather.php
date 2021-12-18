@@ -9,11 +9,12 @@
 </head>
 <body>.
 
-
+// Formats entered address
 <?php
 $address = $_GET['address'];
 $formattedAddress =  urlencode($address[0]).',+'.urlencode($address[1]).',+'.$address[2].',+'.$address[3];
 
+// Gets latitude
 function get_lat($fa)
 {
     $googleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=$fa&key=<enterSuperSecretGoogleAPIkeyCodeHere>";
@@ -21,7 +22,8 @@ function get_lat($fa)
     $lat = $location['results'][0]['geometry']['location']['lat'];
     return $lat;
 }
-
+    
+// Gets longitude
 function get_long($fa)
 {
     $googleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=$fa&key=<enterSuperSecretGoogleAPIkeyCodeHere>";
@@ -93,6 +95,7 @@ $forcast6WD = $gridPoints['properties']['periods'][5]['windDirection'];
 <div class = "container">
   <h1>Weather Forecast</h1>
 
+    // Table to output next 6 forecasts and well as other forcast information (Forecast, Temperature, Wind Speed, Wind Direction)
 <table>
   <tr>
     <th></th>
@@ -131,6 +134,7 @@ $forcast6WD = $gridPoints['properties']['periods'][5]['windDirection'];
     <td><p> <?php echo $forcast6WD;?> </p></td>
   </tr>
   <tr>
+      // Button to home page
     <td><form action="input.html"> <input type="submit" id="home" value="Back to Home" class="sbutton"/> </form> </td>
     <td></td>
     <td></td>
